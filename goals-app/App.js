@@ -10,6 +10,9 @@ export default function App() {
   const [isAddMode, setIsAddMode] = useState(false);
 
   const addGoalHandler = (goalTitle) => {
+    if (goalTitle.length === 0) {
+      return;
+    }
     //Arrow function is more accurate than using [...courseGoals, ...]
     setCourseGoals((currentGoals) => [
       ...currentGoals,

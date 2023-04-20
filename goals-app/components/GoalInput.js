@@ -8,7 +8,7 @@ const GoalInput = (props) => {
     setEnteredGoal(enteredText);
   };
 
-  const addGoalHandler = () => {
+  const addGoal = () => {
     props.onAddGoal(enteredGoal); //Forward the enteredGoal state to the App.js
     setEnteredGoal(''); //Clear the input field
   };
@@ -27,7 +27,7 @@ const GoalInput = (props) => {
             <Button color='red' title='CANCEL' onPress={props.onCancel} />
           </View>
           <View style={styles.btn}>
-            <Button title='ADD' onPress={addGoalHandler} />
+            <Button title='ADD' onPress={addGoal} />
           </View>
         </View>
       </View>
