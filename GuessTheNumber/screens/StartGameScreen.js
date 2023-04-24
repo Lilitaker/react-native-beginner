@@ -11,8 +11,12 @@ const StartGameScreen = (props) => {
         <Text>Select a number</Text>
         <TextInput style={styles.input} />
         <View style={styles.btnContainer}>
-          <Button title='Reset' onPress={() => {}} />
-          <Button title='Confirm' onPress={() => {}} />
+          <View style={styles.btn}>
+            <Button title='Reset' onPress={() => {}} color='#c717fc' />
+          </View>
+          <View style={styles.btn}>
+            <Button title='Confirm' onPress={() => {}} color='#f7287b' />
+          </View>
         </View>
       </Card>
     </View>
@@ -29,16 +33,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginVertical: 10,
   },
+  inputContainer: {
+    width: 300,
+    maxWidth: '80%',
+    alignItems: 'center',
+  },
   btnContainer: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
     paddingHorizontal: 15,
   },
-  inputContainer: {
-    width: 300,
-    maxWidth: '80%',
-    alignItems: 'center',
+  btn: {
+    width: '45%',
   },
 });
 
