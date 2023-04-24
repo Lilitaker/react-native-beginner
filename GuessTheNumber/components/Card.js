@@ -11,12 +11,12 @@ const Card = (props) => {
 
 const styles = StyleSheet.create({
   card: {
-    shadowColor: `${Colors.black_000}`,
+    shadowColor: Colors.black_000,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.26,
     elevation: 8, //Android only
-    backgroundColor: `${Colors.white_fff}`,
+    backgroundColor: Colors.white_fff,
     padding: 20,
     borderRadius: 10,
   },
