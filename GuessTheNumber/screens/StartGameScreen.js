@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -16,11 +16,15 @@ import Input from '../components/Input';
 import Colors from '../constants/colors';
 
 const StartGameScreen = (props) => {
-  const [enteredValue, setEnteredValue] = useState();
+  const [enteredValue, setEnteredValue] = useState('');
 
   const numberInputHandler = (inputText) => {
     // Replace any non-numeric character with an empty string
     setEnteredValue(inputText.replace(/[^0-9]/g, ''));
+  };
+
+  const resetInputHandler = () => {
+    setEnteredValue('');
   };
 
   return (
@@ -41,12 +45,13 @@ const StartGameScreen = (props) => {
             keyboardType='number-pad' //just numbers
             maxLength={2}
             onChangeText={numberInputHandler}
+            value={enteredValue}
           />
           <View style={styles.btnContainer}>
             <View style={styles.btn}>
               <Button
                 title='Reset'
-                onPress={() => {}}
+                onPress={resetInputHandler}
                 color={Colors.secondary}
               />
             </View>
