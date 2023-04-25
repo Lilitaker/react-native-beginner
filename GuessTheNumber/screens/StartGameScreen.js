@@ -12,6 +12,7 @@ import {
 /* Components */
 import Card from '../components/Card';
 import Input from '../components/Input';
+import NumberContainer from '../components/NumberContainer';
 
 /* Others */
 import Colors from '../constants/colors';
@@ -39,16 +40,24 @@ const StartGameScreen = (props) => {
         'Number has to be a number between 1 and 99',
         [{ text: 'Ok', style: 'destructive', onPress: resetBtnHandler }]
       );
+      Keyboard.dismiss();
       return; //Finish the execution of the function
     }
     setConfirmed(true);
     setSelectedNumber(chosenNumber);
     setEnteredValue('');
+    Keyboard.dismiss();
   };
 
   let confirmedOutput;
   if (confirmed) {
-    confirmedOutput = <Text>Chosen Number: {selectedNumber}</Text>;
+    confirmedOutput = (
+      <Card style={styles.summaryContainer}>
+        <Text>You selected number</Text>
+        <NumberContainer>{selectedNumber}</NumberContainer>
+        <Button title='Start Game' />
+      </Card>
+    );
   }
 
   return (
@@ -121,6 +130,10 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: '45%',
+  },
+  summaryContainer: {
+    marginTop: 20,
+    alignItems: 'center',
   },
 });
 
